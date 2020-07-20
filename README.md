@@ -41,6 +41,13 @@ typora-plugins-win-img 插件在编辑时，跟之前没有任何差别。不论
 3. 将复制的插件代码文件，粘贴到typora安装目录下的 `resources\app` 文件夹下；
 4. 安装完成，重启typora
 
+**issue:**
+目前我本地 0.9.77(beta) 版本是可以正常打开偏好设置的，如果存在这个问题，可以尝试通过下面的步奏解决：
+
+可以把备份下来的 window.html 文件恢复回去。
+然后手动编辑恢复回去的文件，搜索<script src="./app/window/frame.js" defer="defer"></script> 在其后面加上一行：<script src="./plugins/image/upload.js" defer="defer"></script> 然后再试试是否能恢复正常。
+注：readme中覆盖 window.html 只是为了引入 ./plugins/image/upload.js 文件，但不同版本window.html文件可能存在一些差异，确实 有可能出现你说的这个问题。
+
 ### 插件配置
 
 插件默认会将图片上传到个人站点上（[街边价](https://jiebianjia.com/?ref=github)），不能保证一直给大家提供服务，所以按照好插件后，强烈建议你换成自己的图片上传服务器。
